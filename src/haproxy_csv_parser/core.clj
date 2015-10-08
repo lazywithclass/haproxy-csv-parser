@@ -1,10 +1,10 @@
-(ns haproxy-csv-parser.core)
+(ns haproxy-csv-parser.core
+  (:require [clojure.string :as str]))
 
-(defn fetch[url]
-  (with-open [stream (.openStream (java.net.URL. url))]
-    (let [buf (java.io.BufferedReader.
-                (java.io.InputStreamReader. stream))]
-      (apply str (line-seq buf)))))
+(defn lines[url]
+  "Splits the downloaded content into lines"
+  (str/split (slurp url) #"\n"))
 
-
-(print (fetch "http://demo.haproxy.org/;csv"))
+(defn -main[& args]
+  (print (nth (lines "http://demo.haproxy.org/;csv") 0))
+)
