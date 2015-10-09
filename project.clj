@@ -1,7 +1,8 @@
-(defproject haproxy-csv-parser "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+(defproject haproxy-csv-parser "0.1.0"
+  :description "Library that parses HAProxy dashboard information from csv into usable data"
+  :url "https://github.com/lazywithclass/haproxy-csv-parser"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0"]]
-  :main haproxy-csv-parser.core)
+  :scm {:name "git"
+        :url "https://github.com/lazywithclass/haproxy-csv-parser"})
