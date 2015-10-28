@@ -18,3 +18,11 @@
 (defn metrics-names[metrics]
   "Returns an array with all the metrics names"
   (split-line (str/replace (nth metrics 0) #"#\s*" "")))
+
+(defn- proxy-name[metrics-line]
+  "Returns the proxy name for this line"
+  (nth (split-line metrics-line) 0))
+
+(defn group-by-proxy-name[metrics name]
+  "Returns an array of lines belonging to a proxy name"
+  (filter #(= (proxy-name %) name) metrics))
